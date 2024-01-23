@@ -1,0 +1,26 @@
+const express = require('express')
+const router = express.Router()
+const adminAuth = require('../controllers/adminAuth')
+const updateProfile = require('../controllers/adminUpdateProfile')
+const uploadProductsImages = require('../controllers/uploadProduct')
+const isAuth = require('../middleware/isAuth')
+const uplaodSound = require('../controllers/uplaodSound')
+const addProduct = require('../controllers/addProduct')
+const updateProduct = require('../controllers/updateProduct')
+const deleteProduct = require('../controllers/deleteProduct')
+const allOrders = require('../controllers/allOrders')
+const updateOrderStatus = require('../controllers/updateOrderStatus')
+
+// router.post('/auth/signup', adminAuth.signup)
+router.post('/auth/signin', adminAuth.signin)
+router.post('/updateProfile', isAuth, updateProfile)
+router.post('/uploadProductsImages', isAuth, uploadProductsImages)
+router.post('/uplaodSound', isAuth, uplaodSound)
+router.post('/addProduct', isAuth, addProduct)
+router.post('/updateProduct', isAuth, updateProduct)
+router.post('/deleteProduct', isAuth, deleteProduct)
+router.get('/allOrders', isAuth, allOrders)
+router.post('/updateOrderStatus', isAuth, updateOrderStatus)
+
+
+module.exports = router

@@ -1,0 +1,516 @@
+{
+    "baseURL": "http://192.168.100.59:5000/",
+    "endPoints": [
+        {
+            "name": "User check existing email.",
+            "path": "auth/checkExistingEmail",
+            "method": "POST",
+            "body": {
+                "email": "",
+                "password": ""
+            },
+            "description": "All fields required.",
+            "response": {
+                "success": true,
+                "message": "This email is available."
+            }
+        },
+        {
+            "name": "User signup.",
+            "path": "auth/signup",
+            "method": "POST",
+            "body": {
+                "name": "",
+                "email": "",
+                "password": ""
+            },
+            "description": "All fields required.",
+            "response": {
+                "success": true,
+                "message": "New user created.",
+                "userData": "userData received.",
+                "token": "auth token."
+            }
+        },
+        {
+            "name": "User signin.",
+            "path": "auth/signin",
+            "method": "POST",
+            "body": {
+                "email": "",
+                "password": ""
+            },
+            "description": "All fields required.",
+            "response": {
+                "success": true,
+                "message": "Signin successfully.",
+                "userData": "userData received.",
+                "token": "auth token."
+            }
+        },
+        {
+            "name": "User forgot password.",
+            "path": "auth/forgotPasswordOtp",
+            "method": "POST",
+            "body": {
+                "email": ""
+            },
+            "description": "Email required.",
+            "response": {
+                "success": true,
+                "message": "Forgot password email sent.",
+                "otp": "otp received."
+            }
+        },
+        {
+            "name": "User forgot password.",
+            "path": "auth/forgotPasswordOtp",
+            "method": "POST",
+            "body": {
+                "email": ""
+            },
+            "description": "Email required.",
+            "response": {
+                "success": true,
+                "message": "Forgot password email sent.",
+                "otp": "otp received."
+            }
+        },
+        {
+            "name": "User change password.",
+            "path": "auth/changePassword",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "password": ""
+            },
+            "description": "password required.",
+            "response": {
+                "success": true,
+                "message": "Password changed."
+            }
+        },
+        {
+            "name": "User get user details.",
+            "path": "userDetails",
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "response": {
+                "success": true,
+                "message": "User details.",
+                "userData": "Received userData."
+            }
+        },
+        {
+            "name": "User edit profile.",
+            "path": "editProfile",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "name": ""
+            },
+            "description": "All fields required.",
+            "response": {
+                "success": true,
+                "message": "Profile update successfully.",
+                "updatedData": "Received userData."
+            }
+        },
+        {
+            "name": "User upload user profile image.",
+            "path": "uploadProfile",
+            "method": "POST",
+            "body": {
+                "image": "form data"
+            },
+            "response": {
+                "success": true,
+                "message": "Image uploaded successfully.",
+                "url": "Uploaded image url."
+            }
+        },
+        {
+            "name": "User get all product.",
+            "path": "getAllProduct",
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "response": {
+                "success": true,
+                "message": "All products."
+            }
+        },
+        {
+            "name": "User add to cart.",
+            "path": "addToCart",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "productId": "",
+                "qty": 0
+            },
+            "response": {
+                "one": {
+                    "success": true,
+                    "message": "Quantity has been increased."
+                },
+                "two": {
+                    "success": true,
+                    "message": "Add product in cart successfully."
+                }
+            }
+        },
+        {
+            "name": "User delete from cart.",
+            "path": "deleteFromCart",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "cartId": "card item _id."
+            },
+            "response": {
+                "success": true,
+                "message": "Delete from cart."
+            }
+        },
+        {
+            "name": "Increment cart by 1.",
+            "path": "cartIncrement",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "cartId": "card item _id."
+            },
+            "response": {
+                "success": true,
+                "message": "Cart increment."
+            }
+        },
+        {
+            "name": "Decrement cart by 1.",
+            "path": "cartDecrement",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "cartId": "card item _id."
+            },
+            "response": {
+                "success": true,
+                "message": "Cart decremented."
+            }
+        },
+        {
+            "name": "Add new paymet card.",
+            "path": "addNewCard",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "name": "card name.",
+                "cardNumber": 0,
+                "expireDate": "",
+                "cvv": 0
+            },
+            "response": {
+                "success": true,
+                "message": "New card added successfully."
+            }
+        },
+        {
+            "name": "Delete paymet card.",
+            "path": "deleteCard",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "cardId": ""
+            },
+            "response": {
+                "success": true,
+                "message": "Card deleted successfully."
+            }
+        },
+        {
+            "name": "Update paymet card.",
+            "path": "updateCard",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "cardId": "",
+                "name": "",
+                "cardNumber": 0,
+                "expireDate": "",
+                "cvv": 0
+            },
+            "response": {
+                "success": true,
+                "message": "Card updated successfully."
+            }
+        },
+        {
+            "name": "Add shipping address.",
+            "path": "addShippingAddress",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "address": "",
+                "city": "",
+                "state": "",
+                "zipCode": 0,
+                "country": "",
+                "phone":0
+            },
+            "response": {
+                "success": true,
+                "message": "New address added successfully."
+            }
+        },
+        {
+            "name": "Delete shipping address.",
+            "path": "deleteShippingAddress",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "addressId": "Document _id"
+            },
+            "response": {
+                "success": true,
+                "message": "Address delete successfully."
+            }
+        },
+        {
+            "name": "Update shipping address.",
+            "path": "updateShippingAddress",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "addressId": "Document _id.",
+                "address": "",
+                "city": "",
+                "state": "",
+                "zipCode": 0,
+                "country": ""
+            },
+            "response": {
+                "success": true,
+                "message": "Shipping address updated successfully."
+            }
+        },
+        {
+            "name": "New order.",
+            "path": "order",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "products": "Document _id.",
+                "shippingAddress": "Document _id.",
+                "status": "",
+                "paymentMethod": ""
+            },
+            "response": {
+                "success": true,
+                "message": "Order confirmed.",
+                "newOrder": "newOrder"
+            }
+        },
+        {
+            "name": "Admin signin.",
+            "path": "admin/auth/signin",
+            "method": "POST",
+            "body": {
+                "email": "",
+                "password": ""
+            },
+            "description": "All fields required.",
+            "response": {
+                "success": true,
+                "message": "Signin successfully.",
+                "adminData": "Admin data."
+            }
+        },
+        {
+            "name": "Admin update profile.",
+            "path": "admin/updateProfile",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "name": "",
+                "profile": ""
+            },
+            "description": "body optional.",
+            "response": {
+                "success": true,
+                "message": "Admin profile updated.",
+                "updatedData": "Admin updatedData."
+            }
+        },
+        {
+            "name": "Admin upload product image.",
+            "path": "admin/uploadProductsImages",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "images": "form data"
+            },
+            "description": "Maximum 10 images upload limit.",
+            "response": {
+                "success": true,
+                "message": "Images uploaded successfully.",
+                "images": [
+                    "imageURL",
+                    "..."
+                ]
+            }
+        },
+        {
+            "name": "Admin upload product sound.",
+            "path": "admin/uplaodSound",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "sound": "form data"
+            },
+            "description": "Sound required.",
+            "response": {
+                "success": true,
+                "message": "Sound uploaded successfully.",
+                "url": "Uploaded sound URL."
+            }
+        },
+        {
+            "name": "Admin add product.",
+            "path": "admin/addProduct",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "images": [
+                    "ImageURL",
+                    "..."
+                ],
+                "brand": "",
+                "description": "",
+                "title": "",
+                "price": 0,
+                "quantity": 0,
+                "sound": "Sound URL"
+            },
+            "description": "All fields and At least one image required",
+            "response": {
+                "success": true,
+                "message": "Add product successfully.",
+                "newProduct": "newProduct"
+            }
+        },
+        {
+            "name": "Admin update product.",
+            "path": "admin/updateProduct",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "_id": "",
+                "images": [
+                    "ImageURL",
+                    "..."
+                ],
+                "brand": "",
+                "description": "",
+                "title": "",
+                "price": 0,
+                "quantity": 0,
+                "sound": "Sound URL"
+            },
+            "description": "All fields and At least one image required",
+            "response": {
+                "success": true,
+                "message": "update product.",
+                "updatedProduct": "updatedProduct"
+            }
+        },
+        {
+            "name": "Admin update product.",
+            "path": "admin/deleteProduct",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "_id": ""
+            },
+            "description": "_id required",
+            "response": {
+                "success": true,
+                "message": "Product delete successfully."
+            }
+        },
+        {
+            "name": "Admin update order status.",
+            "path": "admin/updateOrderStatus",
+            "method": "POST",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {
+                "orderId": "Order document _id.",
+                "status": "",
+                "Processing": "Processing",
+                "Dispatched": "Dispatched",
+                "Delivered": "Delivered"
+            },
+            "response": {
+                "success": true,
+                "message": "Order status successfully."
+            }
+        },
+        {
+            "name": "Admin get all orders.",
+            "path": "admin/allOrders",
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer your token"
+            },
+            "body": {},
+            "response": {
+                "success": true,
+                "message": "All orders.",
+                "allorder": "allorder"
+            }
+        }
+    ]
+}
